@@ -44,19 +44,7 @@ public class BattlesnakeResource {
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response startGame(BattlesnakeRequest request) {
-        int height = (int) request.board.get("height");
-        int width = (int) request.board.get("width");
-
-        if (height == 1) {
-            MoveResponse move = new MoveResponse("up", "Going up!");
-            return Response.ok(move).build();
-
-        } else {
-            MoveResponse move = new MoveResponse("down", "Going down!");
-            return Response.ok(move).build();
-
-        }
-
+        return Response.ok().build();
     }
 
     @POST
