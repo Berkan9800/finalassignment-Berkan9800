@@ -65,15 +65,8 @@ public class BattlesnakeResource {
         int height = (int) request.board.get("height");
         int width = (int) request.board.get("width");
 
-        if (height == 10) {
-            MoveResponse move = new MoveResponse("up", "Going up!");
+            MoveResponse move = new MoveResponse(null, "Going down!");
             return Response.ok(move).build();
-
-        } else {
-            MoveResponse move = new MoveResponse("down", "Going down!");
-            return Response.ok(move).build();
-
-        }
 
 
     }
