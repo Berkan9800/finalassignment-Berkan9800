@@ -58,13 +58,11 @@ public class BattlesnakeResource {
         MoveResponse moveUp = new MoveResponse("up", "going up!");
         MoveResponse moveDown = new MoveResponse("down", "going down!");
 
-        while (height < 5) {
-
+        if (height < 2) {
             return Response.ok(moveUp).build();
+        } else {
+            return Response.ok(moveDown).build();
         }
-
-        return Response.ok(moveDown).build();
-
     }
 
 
