@@ -54,13 +54,14 @@ public class BattlesnakeResource {
     public Response moveGame(BattlesnakeRequest request) {
         int height = (int) request.board.get("height");
         int width = (int) request.board.get("width");
+        int turn = (int) request.turn;
 
         MoveResponse moveUp = new MoveResponse("up", "going up!");
         MoveResponse moveDown = new MoveResponse("down", "going down!");
         MoveResponse moveLeft = new MoveResponse("left", "going left!");
         MoveResponse moveRight = new MoveResponse("right", "going right!");
 
-        if (height < 2) {
+        if (turn < 2) {
             return Response.ok(moveUp).build();
         } else {
             return Response.ok(moveDown).build();
