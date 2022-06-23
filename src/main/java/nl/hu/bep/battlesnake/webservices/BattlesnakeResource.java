@@ -71,7 +71,7 @@ public class BattlesnakeResource {
             }
 
         }
-        MoveResponse move = new MoveResponse("down", "Going down!");
+        MoveResponse move = new MoveResponse("left", "Going down!");
         return Response.ok(move).build();
     }
 
