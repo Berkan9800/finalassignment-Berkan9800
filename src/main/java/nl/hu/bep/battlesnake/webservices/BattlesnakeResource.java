@@ -75,9 +75,11 @@ public class BattlesnakeResource {
 
         if (headString.equals("{x=0, y=10}") || headString.equals("{x=1, y=10}") || headString.equals("{x=2, y=10}") || headString.equals("{x=3, y=10}") || headString.equals("{x=4, y=10}") || headString.equals("{x=5, y=10}") || headString.equals("{x=6, y=10}") || headString.equals("{x=7, y=10}") || headString.equals("{x=8, y=10}") || headString.equals("{x=9, y=10}") || headString.equals("{x=10, y=10}")){
             return Response.ok(moveDown).build();
+        } else {
+            return Response.ok(moveUp).build();
         }
 
-        return Response.ok(moveUp).build();
+
 
 
 
