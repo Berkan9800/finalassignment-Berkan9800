@@ -82,7 +82,7 @@ public class BattlesnakeResource {
         if (turn < 3) {
             return Response.ok(moveUp).build();
         }
-            return Response.ok(moveDown).build();
+            return Response.ok(moveLeft).build();
 
 
 
