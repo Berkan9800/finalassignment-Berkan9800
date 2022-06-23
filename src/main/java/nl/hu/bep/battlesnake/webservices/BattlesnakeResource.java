@@ -62,11 +62,14 @@ public class BattlesnakeResource {
         MoveResponse moveRight = new MoveResponse("right", "going right!");
 
         if (turn == 0) {
+            System.out.println(turn);
             return Response.ok(moveDown).build();
+
         }
-        if (turn == 1) {
+        if (turn == 2) {
             return Response.ok(moveLeft).build();
         }
+
         return Response.ok(moveUp).build();
     }
 
