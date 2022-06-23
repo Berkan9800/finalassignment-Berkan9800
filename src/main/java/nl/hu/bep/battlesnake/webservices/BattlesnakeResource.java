@@ -43,15 +43,7 @@ public class BattlesnakeResource {
     @POST
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response startGame() {
-        return Response.ok().build();
-    }
-
-    @POST
-    @Path("/move")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response moveGame(BattlesnakeRequest request) {
+    public Response startGame(BattlesnakeRequest request) {
         int height = (int) request.board.get("height");
         int width = (int) request.board.get("width");
 
@@ -62,6 +54,20 @@ public class BattlesnakeResource {
             MoveResponse move = new MoveResponse("up", "Going up!");
             return Response.ok(move).build();
         }
+    }
+
+    @POST
+    @Path("/move")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response moveGame(BattlesnakeRequest request) {
+        int height = (int) request.board.get("height");
+        int width = (int) request.board.get("width");
+
+
+        MoveResponse move = new MoveResponse("down", "Going down!");
+        return Response.ok(move).build();
+
 
     }
 
