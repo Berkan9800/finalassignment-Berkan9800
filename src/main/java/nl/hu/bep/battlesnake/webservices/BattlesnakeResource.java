@@ -3,11 +3,13 @@ package nl.hu.bep.battlesnake.webservices;
 
 import nl.hu.bep.battlesnake.model.GameInfo;
 
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.awt.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -54,20 +56,33 @@ public class BattlesnakeResource {
     public Response moveGame(BattlesnakeRequest request) {
         int height = (int) request.board.get("height");
         int width = (int) request.board.get("width");
-        int turn = (int) request.turn;
+        int turn = request.turn;
+
+
+        Object head = request.you.get("head").toString();
+
+        String headString = (String) head;
 
         MoveResponse moveUp = new MoveResponse("up", "going up!");
         MoveResponse moveDown = new MoveResponse("down", "going down!");
         MoveResponse moveLeft = new MoveResponse("left", "going left!");
         MoveResponse moveRight = new MoveResponse("right", "going right!");
 
-        if (turn == 0) {
+
+        if (headString.equals("{x=0, y=1}") || headString.equals("{x=1, y=1}") || headString.equals("{x=2, y=1}") || headString.equals("{x=3, y=1}") || headString.equals("{x=4, y=1}") || headString.equals("{x=5, y=1}") || headString.equals("{x=6, y=1}") || headString.equals("{x=7, y=1}") || headString.equals("{x=8, y=1}") || headString.equals("{x=9, y=1}") || headString.equals("{x=10, y=1}")){
+            return Response.ok(moveUp).build();
+        }
+
+        if (headString.equals("{x=0, y=10}") || headString.equals("{x=1, y=10}") || headString.equals("{x=2, y=10}") || headString.equals("{x=3, y=10}") || headString.equals("{x=4, y=10}") || headString.equals("{x=5, y=10}") || headString.equals("{x=6, y=10}") || headString.equals("{x=7, y=10}") || headString.equals("{x=8, y=10}") || headString.equals("{x=9, y=10}") || headString.equals("{x=10, y=10}")){
             return Response.ok(moveDown).build();
         }
-        if (turn == 1) {
-            return Response.ok(moveLeft).build();
-        }
+
         return Response.ok(moveUp).build();
+
+
+
+
+
     }
 
 
