@@ -62,9 +62,9 @@ public class BattlesnakeResource {
 
         if (height < 2) {
             return Response.ok(moveUp).build();
-        } else {
-            return Response.ok(moveDown).build();
         }
+            return Response.ok(moveDown).build();
+
     }
 
 
