@@ -8,11 +8,24 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.awt.*;
+import java.util.Map;
 
 
 class MoveResponse {
     public String move;
     public String shout;
+
+    public MoveResponse(String move, String shout) {
+        this.move = move;
+        this.shout = shout;
+    }
+}
+
+class BattlesnakeRequest {
+    public int turn;
+    public Map<String, Object> you;
+    public Map<String, Object> board;
+    public Map<String, Object> game;
 }
 
 @Path("/snake")
@@ -38,12 +51,16 @@ public class BattlesnakeResource {
     @Path("/move")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response moveGame() {
-        MoveResponse move = new MoveResponse();
-        move.move = "up";
-        move.shout = "Going up";
+    public Response moveGame(BattlesnakeRequest request) {
+        int height = (int) request.board.get("height");
+        if (height == 5) {
+            MoveResponse move = new MoveResponse("down", "Going down!");
+            return Response.ok(move).build();
+        } else {
+            MoveResponse move = new MoveResponse("up", "Going up!");
+            return Response.ok(move).build();
+        }
 
-        return Response.ok(move).build();
     }
 
 
