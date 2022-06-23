@@ -19,7 +19,7 @@ export default class SnakeService {
 
     async updateSnake(updatedSnake) {
         //TODO: update je slang aan de server-kant met de nieuwe gegevens
-        return fetch("/restservices/uiterlijk")
+        return fetch(`/restservices/${updatedSnake}`)
             .then(response => response.json())
     }
 }

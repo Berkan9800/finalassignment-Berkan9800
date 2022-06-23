@@ -9,14 +9,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/uiterlijk")
+@Path("/updatedSnake")
 public class UiterlijkSnakeResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUiterlijk() {
         UiterlijkSnake uiterlijk = new UiterlijkSnake();
-        uiterlijk.setColor("red");
+        uiterlijk.setColor("#6f2bcf");
         uiterlijk.setHead("evil");
         uiterlijk.setTail("small-rattle");
         return Response.ok(uiterlijk).build();
