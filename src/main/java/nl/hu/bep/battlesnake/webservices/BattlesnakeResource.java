@@ -61,13 +61,13 @@ public class BattlesnakeResource {
         MoveResponse moveLeft = new MoveResponse("left", "going left!");
         MoveResponse moveRight = new MoveResponse("right", "going right!");
 
-        if (turn > 5) {
-            return Response.ok(moveUp).build();
-        } else if (turn == 0){
+        if (turn == 0) {
             return Response.ok(moveDown).build();
-        } else {
-            return Response.ok(moveLeft).build();
         }
+        if (turn == 2) {
+            return Response.ok(moveUp).build();
+        }
+        return Response.ok(moveLeft).build();
     }
 
 
