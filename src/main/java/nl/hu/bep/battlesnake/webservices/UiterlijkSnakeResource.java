@@ -17,6 +17,8 @@ public class UiterlijkSnakeResource {
     public Response getUiterlijk() {
         UiterlijkSnake uiterlijk = new UiterlijkSnake();
         uiterlijk.setColor("red");
+        uiterlijk.setHead("evil");
+        uiterlijk.setTail("small-rattle");
         return Response.ok(uiterlijk).build();
     }
 }
