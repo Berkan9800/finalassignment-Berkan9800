@@ -43,17 +43,8 @@ public class BattlesnakeResource {
     @POST
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response startGame(BattlesnakeRequest request) {
-        int height = (int) request.board.get("height");
-        int width = (int) request.board.get("width");
-
-        if (height > 9) {
-            MoveResponse move = new MoveResponse("down", "Going down!");
-            return Response.ok(move).build();
-        } else {
-            MoveResponse move = new MoveResponse("up", "Going up!");
-            return Response.ok(move).build();
-        }
+    public Response startGame() {
+        return Response.ok().build();
     }
 
     @POST
@@ -64,10 +55,15 @@ public class BattlesnakeResource {
         int height = (int) request.board.get("height");
         int width = (int) request.board.get("width");
 
+        MoveResponse moveUp = new MoveResponse("up", "going up!");
+        MoveResponse moveDown = new MoveResponse("down", "going down!");
 
-        MoveResponse move = new MoveResponse("down", "Going down!");
-        return Response.ok(move).build();
+        while (height < 5) {
 
+            return Response.ok(moveUp).build();
+        }
+
+        return Response.ok(moveDown).build();
 
     }
 
