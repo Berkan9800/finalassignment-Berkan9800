@@ -67,10 +67,10 @@ public class BattlesnakeResource {
 
         }
         if (turn == 2) {
-            return Response.ok(moveLeft).build();
+            return Response.ok(moveUp).build();
         }
 
-        return Response.ok(moveUp).build();
+        return Response.ok(moveLeft).build();
     }
 
 
