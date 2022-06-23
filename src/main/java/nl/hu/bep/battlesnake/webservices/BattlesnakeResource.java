@@ -69,15 +69,30 @@ public class BattlesnakeResource {
         MoveResponse moveRight = new MoveResponse("right", "going right!");
 
 
-        if (headString.equals("{x=0, y=1}") || headString.equals("{x=1, y=1}") || headString.equals("{x=2, y=1}") || headString.equals("{x=3, y=1}") || headString.equals("{x=4, y=1}") || headString.equals("{x=5, y=1}") || headString.equals("{x=6, y=1}") || headString.equals("{x=7, y=1}") || headString.equals("{x=8, y=1}") || headString.equals("{x=9, y=1}") || headString.equals("{x=10, y=1}")){
+//        if (headString.equals("{x=0, y=1}") || headString.equals("{x=1, y=1}") || headString.equals("{x=2, y=1}") || headString.equals("{x=3, y=1}") || headString.equals("{x=4, y=1}") || headString.equals("{x=5, y=1}") || headString.equals("{x=6, y=1}") || headString.equals("{x=7, y=1}") || headString.equals("{x=8, y=1}") || headString.equals("{x=9, y=1}") || headString.equals("{x=10, y=1}")){
+//            return Response.ok(moveUp).build();
+//        }
+//
+//        if (headString.equals("{x=0, y=10}") || headString.equals("{x=1, y=10}") || headString.equals("{x=2, y=10}") || headString.equals("{x=3, y=10}") || headString.equals("{x=4, y=10}") || headString.equals("{x=5, y=10}") || headString.equals("{x=6, y=10}") || headString.equals("{x=7, y=10}") || headString.equals("{x=8, y=10}") || headString.equals("{x=9, y=10}") || headString.equals("{x=10, y=10}")){
+//            return Response.ok(moveDown).build();
+//        } else {
+//            return Response.ok(moveUp).build();
+//        }
+
+        if (turn == 0) {
+            return Response.ok(moveDown).build();
+        }
+        if (turn == 2) {
+            return Response.ok(moveLeft).build();
+        }
+        if (turn == 4) {
             return Response.ok(moveUp).build();
+        }
+        if (turn == 6) {
+            return Response.ok(moveRight).build();
         }
 
-        if (headString.equals("{x=0, y=10}") || headString.equals("{x=1, y=10}") || headString.equals("{x=2, y=10}") || headString.equals("{x=3, y=10}") || headString.equals("{x=4, y=10}") || headString.equals("{x=5, y=10}") || headString.equals("{x=6, y=10}") || headString.equals("{x=7, y=10}") || headString.equals("{x=8, y=10}") || headString.equals("{x=9, y=10}") || headString.equals("{x=10, y=10}")){
-            return Response.ok(moveDown).build();
-        } else {
-            return Response.ok(moveUp).build();
-        }
+        return Response.ok(moveUp).build();
 
 
 
