@@ -53,8 +53,7 @@ public class BattlesnakeResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response moveGame(BattlesnakeRequest request) {
         int height = (int) request.board.get("height");
-
-
+        int width = (int) request.board.get("width");
 
         if (height == 10) {
             MoveResponse move = new MoveResponse("up", "Going up!");
@@ -63,10 +62,13 @@ public class BattlesnakeResource {
         } else if (height == 1) {
             MoveResponse move = new MoveResponse("down", "Going down!");
             return Response.ok(move).build();
+
+        } else {
+            MoveResponse move = new MoveResponse("left", "Going left!");
+            return Response.ok(move).build();
         }
 
-        MoveResponse move = new MoveResponse("left", "Going left!");
-        return Response.ok(move).build();
+
     }
 
 
