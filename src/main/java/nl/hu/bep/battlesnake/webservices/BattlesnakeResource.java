@@ -2,7 +2,9 @@ package nl.hu.bep.battlesnake.webservices;
 
 
 import nl.hu.bep.battlesnake.model.GameInfo;
+import nl.hu.bep.battlesnake.model.Snake;
 
+import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -68,16 +70,6 @@ public class BattlesnakeResource {
             return Response.ok(moveLeft).build();
         }
 
-
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -89,6 +81,16 @@ public class BattlesnakeResource {
         return Response.ok().build();
     }
 
+
+    @PUT
+    @Path("{updatedSnake}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateSnake(@PathParam("updatedSnake")String uD, @FormParam("color")String cl, @FormParam("tail")String tl, @FormParam("head")String hd) {
+        Snake snake = new Snake(uD, cl, tl, hd);
+        Snake updatedSnake = Snake.updateSnake(snake);
+
+        return Response.ok(updatedSnake).build();
+    }
 
 
 
