@@ -37,7 +37,7 @@ public class BattlesnakeResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInfo() {
         GameInfo information = new GameInfo();
-        information.setAuthor("berkangurel");
+        information.setAuthor("berkan gurel");
 
         return Response.ok(information).build();
     }
