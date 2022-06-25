@@ -56,8 +56,7 @@ public class BattlesnakeResource {
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response startGame() {
-        UiterlijkResponse uiterlijk = new UiterlijkResponse("#6f2bcf");
-        return Response.ok(uiterlijk).build();
+        return Response.ok().build();
     }
 
     @POST
@@ -66,18 +65,8 @@ public class BattlesnakeResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response moveGame(BattlesnakeRequest request) {
 
-        int turn = request.turn;
-
-        MoveResponse moveUp = new MoveResponse("up", "going up!");
-        MoveResponse moveDown = new MoveResponse("down", "going down!");
-        MoveResponse moveLeft = new MoveResponse("left", "going left!");
-        MoveResponse moveRight = new MoveResponse("right", "going right!");
-
-        if (turn < 3) {
-            return Response.ok(moveUp).build();
-        } else {
-            return Response.ok(moveLeft).build();
-        }
+        UiterlijkResponse uiterlijk = new UiterlijkResponse("#6f2bcf");
+        return Response.ok(uiterlijk).build();
 
     }
 
