@@ -48,7 +48,9 @@ public class BattlesnakeResource {
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response startGame() {
-        return Response.ok().build();
+        GameInfo information = new GameInfo();
+        information.setColor("#6f2bcf");
+        return Response.ok(information).build();
     }
 
     @POST
