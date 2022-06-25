@@ -19,9 +19,8 @@ export default class SnakeService {
 
     async updateSnake(updatedSnake) {
         //TODO: update je slang aan de server-kant met de nieuwe gegevens
-        let formData = document.querySelector("#snakeForm");
-        let encData = new URLSearchParams(formData.entries());
-        return fetch("/restservices/snake" + updatedSnake, {method: "PUT", body: encData})
+
+        return fetch("/restservices/updatedSnake", {method: "PUT", body: updatedSnake})
             .then(response => response.json())
     }
 }
