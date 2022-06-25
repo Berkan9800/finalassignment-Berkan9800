@@ -25,6 +25,14 @@ class MoveResponse {
     }
 }
 
+
+class UiterlijkResponse {
+    public String color;
+    public UiterlijkResponse(String color) {
+        this.color = color;
+    }
+}
+
 class BattlesnakeRequest {
     public int turn;
     public Map<String, Object> you;
@@ -48,9 +56,8 @@ public class BattlesnakeResource {
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response startGame() {
-        GameInfo information = new GameInfo();
-        information.setColor("#6f2bcf");
-        return Response.ok(information).build();
+        UiterlijkResponse uiterlijk = new UiterlijkResponse("#6f2bcf");
+        return Response.ok(uiterlijk).build();
     }
 
     @POST
