@@ -25,14 +25,6 @@ class MoveResponse {
     }
 }
 
-
-class UiterlijkResponse {
-    public String color;
-    public UiterlijkResponse(String color) {
-        this.color = color;
-    }
-}
-
 class BattlesnakeRequest {
     public int turn;
     public Map<String, Object> you;
@@ -56,6 +48,7 @@ public class BattlesnakeResource {
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response startGame() {
+
         return Response.ok().build();
     }
 
@@ -65,8 +58,18 @@ public class BattlesnakeResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response moveGame(BattlesnakeRequest request) {
 
-        UiterlijkResponse uiterlijk = new UiterlijkResponse("#6f2bcf");
-        return Response.ok(uiterlijk).build();
+        int turn = request.turn;
+
+        MoveResponse moveUp = new MoveResponse("up", "going up!");
+        MoveResponse moveDown = new MoveResponse("down", "going down!");
+        MoveResponse moveLeft = new MoveResponse("left", "going left!");
+        MoveResponse moveRight = new MoveResponse("right", "going right!");
+
+        if (turn < 3) {
+            return Response.ok(moveUp).build();
+        } else {
+            return Response.ok(moveLeft).build();
+        }
 
     }
 
@@ -80,15 +83,7 @@ public class BattlesnakeResource {
     }
 
 
-    @PUT
-    @Path("{updatedSnake}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response updateSnake(@PathParam("updatedSnake")String uD, @FormParam("color")String cl, @FormParam("tail")String tl, @FormParam("head")String hd) {
-        Snake snake = new Snake(uD, cl, tl, hd);
-        Snake updatedSnake = Snake.updateSnake(snake);
 
-        return Response.ok(updatedSnake).build();
-    }
 
 
 
