@@ -44,7 +44,7 @@ public class BattlesnakeResource {
         GameInfo information = new GameInfo();
         information.setAuthor("berkan gurel");
         information.setColor("#FFFFFF");
-        information.setTail("Evil");
+        information.setTail("evil");
 
         return Response.ok(information).build();
     }
