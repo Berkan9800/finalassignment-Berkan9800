@@ -1,18 +1,14 @@
 package nl.hu.bep.battlesnake.webservices;
 
 
-import nl.hu.bep.battlesnake.model.Game;
 import nl.hu.bep.battlesnake.model.GameInfo;
-import nl.hu.bep.battlesnake.model.Snake;
+import nl.hu.bep.battlesnake.model.SnakeApi;
 
 import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 
 
@@ -41,20 +37,27 @@ public class BattlesnakeResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInfo() {
-        GameInfo information = new GameInfo();
-        information.setAuthor("berkan gurel");
-        information.setColor("#f633ff");
-        information.setHead("evil");
+        GameInfo info = SnakeApi.getApiService().getInformation();
+        return Response.ok(info).build();
+    }
 
-        return Response.ok(information).build();
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateGameInfo(UiterlijkRequest req) {
+        GameInfo info = SnakeApi.getApiService().getInformation();
+
+        info.setColor(req.color);
+        info.setTail(req.tail);
+        info.setHead(req.head);
+
+        return Response.ok(info).build();
     }
 
     @POST
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response startGame() {
-        Game game = Game.getDeGame();
-
         return Response.ok().build();
     }
 
