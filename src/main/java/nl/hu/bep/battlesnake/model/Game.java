@@ -1,13 +1,19 @@
 package nl.hu.bep.battlesnake.model;
 
+import nl.hu.bep.battlesnake.webservices.UiterlijkResource;
+
 public class Game {
-    private static int aantalBochtjesNaarLinks;
+    private static Game deGame;
 
-    public static void setAantalBochtjesNaarLinks(int aantalBochtjesNaarLinks) {
-        Game.aantalBochtjesNaarLinks = aantalBochtjesNaarLinks;
+    public static Game getDeGame() {
+        return deGame;
     }
 
-    public static int getAantalBochtjesNaarLinks() {
-        return aantalBochtjesNaarLinks;
+    public static void setDeGame(Game deGame) {
+        Game.deGame = deGame;
     }
+
+
+
+
 }

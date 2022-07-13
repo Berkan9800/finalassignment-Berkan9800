@@ -1,6 +1,7 @@
 package nl.hu.bep.battlesnake.webservices;
 
 
+import nl.hu.bep.battlesnake.model.Game;
 import nl.hu.bep.battlesnake.model.GameInfo;
 import nl.hu.bep.battlesnake.model.Snake;
 
@@ -32,6 +33,8 @@ class BattlesnakeRequest {
     public Map<String, Object> game;
 }
 
+
+
 @Path("/snake")
 public class BattlesnakeResource {
 
@@ -40,6 +43,7 @@ public class BattlesnakeResource {
     public Response getInfo() {
         GameInfo information = new GameInfo();
         information.setAuthor("berkan gurel");
+        information.setColor("#FFFFFF");
 
         return Response.ok(information).build();
     }
@@ -48,6 +52,7 @@ public class BattlesnakeResource {
     @Path("/start")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response startGame() {
+        Game game = Game.getDeGame();
 
         return Response.ok().build();
     }
