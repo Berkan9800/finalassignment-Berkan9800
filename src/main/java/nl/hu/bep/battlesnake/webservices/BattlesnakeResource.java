@@ -43,7 +43,9 @@ public class BattlesnakeResource {
     public Response getInfo() {
         GameInfo information = new GameInfo();
         information.setAuthor("berkan gurel");
-        information.setColor("#FFFFFF");
+        information.setColor(information.getColor());
+        information.setHead(information.getHead());
+        information.setTail(information.getTail());
 
         return Response.ok(information).build();
     }
