@@ -26,21 +26,3 @@ class UiterlijkRequest {
 }
 
 
-@Path("/updatedSnake")
-public class UiterlijkResource {
-
-    //"color": "#736CCB",
-    //	"head": "beluga",
-    //	"tail": "curled"
-
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-
-    public Response createNewSnake(UiterlijkRequest requestData) {
-        UiterlijkResponse uiterlijkSnake = new UiterlijkResponse(requestData.color, requestData.head, requestData.tail);
-
-        return Response.ok(uiterlijkSnake).build();
-
-    }
-}
