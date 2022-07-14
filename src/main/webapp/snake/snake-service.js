@@ -25,8 +25,7 @@ export default class SnakeService {
             body: JSON.stringify(updatedSnake),
             headers: {"Content-type": "application/json"}
         }
-        //test
-        return fetch("/restservices/updatedSnake",fetchOptions)
+        return fetch("/restservices/snake/updatedSnake",fetchOptions)
             .then(response => response.status)
     }
 }
