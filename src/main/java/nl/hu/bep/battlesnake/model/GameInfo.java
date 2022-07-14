@@ -8,6 +8,10 @@ public class GameInfo {
     private String tail = "default";
     private String version = "0.0.1-beta";
 
+    private int aantalTurns;
+
+
+
     public String getApiversion() {
         return apiversion;
     }
@@ -55,4 +59,6 @@ public class GameInfo {
     public void setVersion(String version) {
         this.version = version;
     }
+
+
 }

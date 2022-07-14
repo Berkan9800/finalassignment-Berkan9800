@@ -87,7 +87,8 @@ public class BattlesnakeResource {
     @POST
     @Path("/end")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response endGame() {
+    public Response endGame(GameStaticRequest req) {
+        int aantalTurns = req.aantalTurns;
         return Response.ok().build();
     }
 

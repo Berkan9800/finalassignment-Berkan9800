@@ -9,7 +9,13 @@ public class SnakeApi {
 
     private GameInfo information = new GameInfo();
 
+    private GameStatics statics = new GameStatics();
+
     public GameInfo getInformation() {
         return information;
+    }
+
+    public GameStatics getStatics() {
+        return statics;
     }
 }

@@ -1,7 +1,9 @@
 export default class GamesService {
     async getGameIds() {
         //TODO: fetch alle games van de de service, idealiter zonder alle details
-        return Promise.resolve(['dummy-1', 'dummy-2']);
+        // return Promise.resolve(['dummy-1', 'dummy-2']);
+        return fetch("restservices/snake/end")
+
     }
 
     async getReplay(gameId) {
@@ -9,17 +11,22 @@ export default class GamesService {
         //zolang je maar laat zien dat je data kunt opslaan over meerdere zetten heen. Dus deze dummy-data is puur
         //ter illustratie.
 
-        return Promise.resolve({
-            id: 'altijd-dezelfde',
-            aantalBeurten: 42,
-            meestBezochtePlek: { x: 3, y: 5},
-            redenEind: 'muur-geraakt',
-            aantalBochtjesLinksaf: 27
-        });
+        // return Promise.resolve({
+        //     id: 'altijd-dezelfde',
+        //     aantalBeurten: 42,
+        //     meestBezochtePlek: { x: 3, y: 5},
+        //     redenEind: 'muur-geraakt',
+        //     aantalBochtjesLinksaf: 27
+        // });
+
+        return fetch(`restservices/snake/end/${gameId}`)
+            .then(response => response.json())
     }
 
     async removeReplay(gameId) {
         //TODO: gebruik fetch om een enkele game (bij de server) te deleten
-        return Promise.resolve();
+        // return Promise.resolve();
+        return fetch(`restservices/snake/end/${gameId}`, {method: "DELETE"})
+            .then(response => response.json())
     }
 }
