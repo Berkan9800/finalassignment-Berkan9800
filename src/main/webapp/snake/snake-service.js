@@ -23,7 +23,7 @@ export default class SnakeService {
         let fetchOptions = {
             method: "PUT",
             body: JSON.stringify(updatedSnake),
-            headers: {"Content-type": "application/json"}
+
         }
         return fetch("/restservices/snake/updatedSnake",fetchOptions)
             .then(response => response.status)
