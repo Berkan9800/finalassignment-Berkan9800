@@ -3,7 +3,7 @@ export default class GamesService {
         //TODO: fetch alle games van de de service, idealiter zonder alle details
         // return Promise.resolve(['dummy-1', 'dummy-2']);
         return fetch("restservices/snake")
-            .then(response => response.json())
+            .then(response => response.status)
 
     }
 
@@ -21,13 +21,13 @@ export default class GamesService {
         // });
 
         return fetch(`restservices/snake/${gameId}`)
-            .then(response => response.json())
+            .then(response => response.status)
     }
 
     async removeReplay(gameId) {
         //TODO: gebruik fetch om een enkele game (bij de server) te deleten
         // return Promise.resolve();
         return fetch(`restservices/snake/${gameId}`, {method: "DELETE"})
-            .then(response => response.json())
+            .then(response => response.status)
     }
 }
