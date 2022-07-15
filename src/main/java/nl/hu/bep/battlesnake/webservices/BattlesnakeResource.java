@@ -2,6 +2,7 @@ package nl.hu.bep.battlesnake.webservices;
 
 
 import nl.hu.bep.battlesnake.model.GameInfo;
+import nl.hu.bep.battlesnake.model.GameStatics;
 import nl.hu.bep.battlesnake.model.SnakeApi;
 
 import javax.print.attribute.standard.Media;
@@ -39,6 +40,13 @@ public class BattlesnakeResource {
     public Response getInfo() {
         GameInfo info = SnakeApi.getApiService().getInformation();
         return Response.ok(info).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getStatics() {
+        GameStatics gameStatics = SnakeApi.getApiService().getStatics();
+        return Response.ok(gameStatics).build();
     }
 
     @PUT
