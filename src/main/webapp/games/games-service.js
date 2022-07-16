@@ -2,8 +2,8 @@ export default class GamesService {
     async getGameIds() {
         //TODO: fetch alle games van de de service, idealiter zonder alle details
         // return Promise.resolve(['dummy-1', 'dummy-2']);
-        return fetch("restservices/snake/gamestatics")
-            .then(response => response.json())
+        return console.log(fetch("restservices/snake/gamestatics"))
+
 
     }
 
