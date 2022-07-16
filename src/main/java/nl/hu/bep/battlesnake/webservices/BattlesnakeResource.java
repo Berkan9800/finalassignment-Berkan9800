@@ -43,6 +43,7 @@ public class BattlesnakeResource {
     }
 
     @GET
+    @Path("gamestatics")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getStatics() {
         GameStatics gameStatics = SnakeApi.getApiService().getStatics();
