@@ -15,7 +15,7 @@ public class SnakeApi {
         return information;
     }
 
-    public GameStatics getStatics() {
+    public GameStatics getStatics(String id) {
         return statics;
     }
 }

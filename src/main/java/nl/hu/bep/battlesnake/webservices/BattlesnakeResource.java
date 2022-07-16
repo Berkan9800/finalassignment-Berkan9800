@@ -43,9 +43,10 @@ public class BattlesnakeResource {
     }
 
     @GET
+    @Path("{gamestatics}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getStatics() {
-        GameStatics gameStatics = SnakeApi.getApiService().getStatics();
+    public Response getStatics(@PathParam("gamestatics") String id) {
+        GameStatics gameStatics = SnakeApi.getApiService().getStatics(id);
         return Response.ok(gameStatics).build();
     }
 
