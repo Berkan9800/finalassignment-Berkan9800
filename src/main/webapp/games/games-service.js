@@ -3,7 +3,7 @@ export default class GamesService {
         //TODO: fetch alle games van de de service, idealiter zonder alle details
         // return Promise.resolve(['dummy-1', 'dummy-2']);
         return fetch("restservices/snake")
-            .then(response => response.status)
+            .then(response => response.json())
 
     }
 
