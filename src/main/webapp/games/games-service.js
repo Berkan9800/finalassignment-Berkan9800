@@ -20,14 +20,14 @@ export default class GamesService {
         //     aantalBochtjesLinksaf: 27
         // });
 
-        return fetch(`restservices/snake/${gameId}`)
+        return fetch(`restservices/snake/` + gameId)
             .then(response => response.status)
     }
 
     async removeReplay(gameId) {
         //TODO: gebruik fetch om een enkele game (bij de server) te deleten
         // return Promise.resolve();
-        return fetch(`restservices/snake/${gameId}`, {method: "DELETE"})
+        return fetch(`restservices/snake/` + gameId, {method: "DELETE"})
             .then(response => response.status)
     }
 }
