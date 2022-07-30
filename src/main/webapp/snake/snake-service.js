@@ -1,7 +1,7 @@
 export default class SnakeService {
     async getSnake() {
 
-        return fetch("/restservices/snake")
+        return fetch("/restservices/snake/gamestatics")
             .then(response => response.json());
 
 

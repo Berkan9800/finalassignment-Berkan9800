@@ -1,8 +1,8 @@
 export default class GamesService {
     async getGameIds() {
-        //TODO: fetch alle games van de de service, idealiter zonder alle details
+        // TODO: fetch alle games van de de service, idealiter zonder alle details
         // return Promise.resolve(['dummy-1', 'dummy-2']);
-        return fetch("restservices/snake")
+        return fetch("/restservices/snake/gamestaticsallgames")
             .then(response => response.json())
 
 
@@ -21,14 +21,24 @@ export default class GamesService {
         //     aantalBochtjesLinksaf: 27
         // });
 
-        return fetch(`restservices/snake/${gameId}`)
-            .then(response => response.status)
+        if (gameId == null) {
+            console.log(gameId === null)
+        } else {
+            return fetch(`restservices/snake/${gameId}`)
+                .then(response => response.status)
+        }
+
     }
 
     async removeReplay(gameId) {
         //TODO: gebruik fetch om een enkele game (bij de server) te deleten
         // return Promise.resolve();
-        return fetch(`restservices/snake/${gameId}`, {method: "DELETE"})
-            .then(response => response.status)
+        if (gameId == null) {
+            console.log(gameId === null);
+        } else {
+            return fetch(`restservices/snake/${gameId}`, {method: "DELETE"})
+                .then(response => response.status)
+        }
+
     }
 }
