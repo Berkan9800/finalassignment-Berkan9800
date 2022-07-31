@@ -4,6 +4,12 @@ export default class GamesService {
         // return Promise.resolve(['dummy-1', 'dummy-2']);
         return fetch("/restservices/snake/gamestaticsallgames")
             .then(response => response.json())
+            .then(data => {
+                document.querySelector("#text1").textContent = JSON.stringify(data)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
 
 
     }
@@ -21,11 +27,18 @@ export default class GamesService {
         //     aantalBochtjesLinksaf: 27
         // });
 
-        if (gameId == null) {
-            console.log(gameId === null)
+        if (gameId === undefined) {
+            console.log("error bij functie getReplay")
         } else {
+            console.log("gelukt bij functie getReplay");
             return fetch(`restservices/snake/${gameId}`)
-                .then(response => response.status)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector("#text2").textContent = JSON.stringify(data)
+
+                }).catch(error => {
+                    console.log(error.message)
+                })
         }
 
     }
@@ -33,11 +46,17 @@ export default class GamesService {
     async removeReplay(gameId) {
         //TODO: gebruik fetch om een enkele game (bij de server) te deleten
         // return Promise.resolve();
-        if (gameId == null) {
-            console.log(gameId === null);
+        if (gameId === undefined) {
+            console.log("error bij functie removeReplay")
         } else {
+            console.log("gelukt bij functie removeReplay");
             return fetch(`restservices/snake/${gameId}`, {method: "DELETE"})
-                .then(response => response.status)
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector("#text3").textContent = JSON.stringify(data)
+                }).catch(error => {
+                    console.log(error.message)
+                })
         }
 
     }
