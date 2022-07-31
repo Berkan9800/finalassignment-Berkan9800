@@ -10,6 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -47,7 +48,14 @@ public class BattlesnakeResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getStaticsSingleGame(@PathParam("gamestaticssinglegame") String id) {
         GameStatics gameStatics = SnakeApi.getApiService().getStaticsSingleGame(id);
-        return Response.ok(gameStatics).build();
+        if (gameStatics == null) {
+            HashMap<String, String> error = new HashMap<>();
+            error.put("Error: ", "Cannot the id of the game");
+            return Response.noContent().entity(error).build();
+        } else {
+            return Response.ok(gameStatics).build();
+        }
+
     }
 
     @GET
@@ -55,7 +63,13 @@ public class BattlesnakeResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getStaticsAllGames() {
         GameStatics gameStatics = SnakeApi.getApiService().getStaticsAllGames();
-        return Response.ok(gameStatics).build();
+        if (gameStatics == null) {
+            HashMap<String, String> error = new HashMap<>();
+            error.put("Error: ", "Cannot find gamestatics of played games");
+            return Response.noContent().entity(error).build();
+        } else {
+            return Response.ok(gameStatics).build();
+        }
     }
 
     @PUT
@@ -105,7 +119,6 @@ public class BattlesnakeResource {
     @Path("/end")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response endGame(GameStaticRequest req) {
-        int aantalTurns = req.aantalTurns;
         return Response.ok().build();
     }
 
